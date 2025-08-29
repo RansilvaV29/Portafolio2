@@ -2,6 +2,7 @@
 
 <section class="projects-section">
 	<div *ngFor="let project of filteredProjects" class="project-card">
+		 
 		<h3>{{ project.name }}</h3>
 		<div class="carousel">
 			<img *ngFor="let img of project.images; let i = index" [src]="img" [alt]="project.name + ' imagen ' + (i+1)"
