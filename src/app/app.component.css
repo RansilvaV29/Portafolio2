@@ -1,0 +1,153 @@
+:root {
+	--app-max-width: 1100px;
+}
+
+/* Material header / toolbar tweaks */
+.mat-header {
+	position: sticky;
+	top: 0;
+	z-index: 1200;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+	transition: all 0.3s ease-in-out;
+	background-color: #212534;
+	padding: 12px 30px;
+	/* transparente */
+	opacity: 0.95;
+	/* animación suave */
+}
+
+.toolbar-title {
+	font-weight: 700;
+	margin-left: 0.5rem;
+	font-size: 1.05rem;
+	line-height: 1;
+	transition: all 0.3s ease-in-out;
+	/* suavizar cambios en móvil */
+}
+
+.spacer {
+	flex: 1 1 auto;
+}
+
+.toolbar-links {
+	display: flex;
+	gap: 2rem;
+	align-items: center;
+	transition: all 0.3s ease-in-out;
+}
+
+.toolbar-links a {
+	color: rgb(155, 138, 141);
+	text-decoration: none;
+	font-weight: 400;
+	cursor: pointer;
+	transition: opacity 0.25s ease-in-out, color 0.3s ease-in-out;
+}
+
+.toolbar-links a:hover {
+	opacity: 0.95;
+}
+
+#contact {
+	background: radial-gradient(ellipse at center, #10121a 0%, #212534 60%, #212534 100%);
+}
+
+/* Hide desktop links on small screens */
+@media (max-width:900px) {
+	.toolbar-links {
+		font-size: 1.4rem;
+		align-content: center;
+		gap: 1rem;
+	}
+}
+
+@media (max-width:768px) {
+	.toolbar-links {
+		font-size: 15px;
+		gap: 0.5rem;
+	}
+}
+
+/* Center toolbar content on small screens while keeping the hamburger at the left */
+@media (max-width:900px) {
+	.mat-header {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		transition: all 0.3s ease-in-out;
+	}
+
+	/* keep the menu button visible and positioned at the left edge */
+	.mat-header>button.mat-icon-button {
+		position: absolute;
+		left: 8px;
+		display: inline-flex;
+		transition: all 0.3s ease-in-out;
+	}
+
+	/* if you have a title span, ensure it centers nicely */
+	.toolbar-title {
+		margin: 0;
+		font-size: 0.92rem;
+		transform: scale(0.98);
+		opacity: 0.98;
+		transition: all 0.3s ease-in-out;
+		/* transiciones al cambiar tamaño y opacidad */
+	}
+}
+
+/* Main content spacing so header does not overlap */
+.main-content {
+	padding-top: 10px;
+	max-width: var(--app-max-width);
+	margin: 0 auto;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	transition: padding 0.3s ease-in-out;
+	background-color: #212534;
+	overflow: hidden;
+}
+
+/* Section spacing */
+section {
+	margin-bottom: 2rem;
+	transition: margin 0.3s ease-in-out;
+}
+
+/* Back to top button */
+.back-to-top {
+	position: fixed;
+	right: 18px;
+	bottom: 22px;
+	width: 44px;
+	height: 44px;
+	border-radius: 50%;
+	background: rgba(0, 0, 0, 0.85);
+	color: #fff;
+	border: none;
+	cursor: pointer;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+	font-size: 1.2rem;
+	z-index: 1400;
+	transition: all 0.3s ease-in-out;
+	/* animación hover */
+}
+
+.back-to-top:hover {
+	background: rgba(0, 0, 0, 0.95);
+	transform: scale(1.08);
+}
+
+.back-to-top mat-icon {
+	font-size: 20px;
+	line-height: 20px;
+	transition: transform 0.3s ease-in-out;
+}
+
+.back-to-top:hover mat-icon {
+	transform: translateY(-2px);
+}

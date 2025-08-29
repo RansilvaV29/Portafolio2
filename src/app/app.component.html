@@ -1,0 +1,28 @@
+<mat-toolbar color="primary" class="mat-header">
+	<!-- <span class="toolbar-title">Portafolio - Raúl Silva</span> -->
+	<!-- <span class="spacer"></span> -->
+	<nav class="toolbar-links">
+		<a (click)="scrollTo('home')">Inicio</a>
+		<a (click)="scrollTo('aboutme')">Sobre mí</a>
+		<a (click)="scrollTo('projects')">Proyectos</a>
+		<a (click)="scrollTo('education')">Educación</a>
+		<a (click)="scrollTo('contact')">Contacto</a>
+	</nav>
+</mat-toolbar>
+
+<mat-sidenav-container class="mat-sidenav-container">
+	<mat-sidenav-content>
+		<main class="main-content">
+			<section id="home"><app-home></app-home></section>
+			<section id="aboutme"><app-aboutme></app-aboutme></section>
+			<section id="projects"><app-projects></app-projects></section>
+			<section id="education"><app-education-experience></app-education-experience></section>
+			<section id="contact"><app-contactme></app-contactme></section>
+		</main>
+	</mat-sidenav-content>
+</mat-sidenav-container>
+
+
+<button class="back-to-top mat-button" *ngIf="showBackToTop" (click)="backToTop()" aria-label="Volver arriba">
+	<mat-icon>arrow_upward</mat-icon>
+</button>

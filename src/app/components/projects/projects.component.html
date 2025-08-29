@@ -1,0 +1,29 @@
+<h2>Mis Proyectos</h2>
+
+<section class="projects-section">
+	<div *ngFor="let project of filteredProjects" class="project-card">
+		<h3>{{ project.name }}</h3>
+		<div class="carousel">
+			<img *ngFor="let img of project.images; let i = index" [src]="img" [alt]="project.name + ' imagen ' + (i+1)"
+				class="carousel-img" />
+		</div>
+		<p class="project-desc">{{ project.description }}</p>
+		<div class="tech-list">
+			<span *ngFor="let tech of project.technologies" class="tech-item">{{ tech }}</span>
+		</div>
+		<div class="project-links">
+			<a *ngIf="project.githubFront" [href]="project.githubFront" target="_blank" class="project-link">GitHub
+				Frontend</a>
+			<a *ngIf="project.githubBack" [href]="project.githubBack" target="_blank" class="project-link">GitHub
+				Backend</a>
+			<a *ngIf="project.github && !project.githubFront && !project.githubBack" [href]="project.github"
+				target="_blank" class="project-link">GitHub</a>
+			<a *ngIf="project.preview" [href]="project.preview" target="_blank" class="project-link">Preview</a>
+		</div>
+		<div *ngIf="project.adminCredentials || project.userCredentials" class="project-credentials">
+			<strong>Credenciales:</strong>
+			<div *ngIf="project.adminCredentials"><span>Administrador: {{ project.adminCredentials }}</span></div>
+			<div *ngIf="project.userCredentials"><span>Usuario: {{ project.userCredentials }}</span></div>
+		</div>
+	</div>
+</section>

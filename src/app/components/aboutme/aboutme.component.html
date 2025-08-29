@@ -1,0 +1,12 @@
+<section class="tech-skills">
+	<h2>Tecnologías con las que trabajo</h2>
+	<div class="tech-grid">
+		<div *ngFor="let tech of technologies" class="tech-item">
+			<div class="tech-icon">
+				<img *ngIf="tech.icon" [src]="tech.icon" [alt]="tech.name + ' icon'" />
+				<div *ngIf="!tech.icon" class="tech-fallback">{{ tech.name.charAt(0) }}</div>
+			</div>
+			<div class="tech-label">{{ tech.name }}</div>
+		</div>
+	</div>
+</section>

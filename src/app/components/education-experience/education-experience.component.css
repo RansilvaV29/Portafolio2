@@ -1,0 +1,51 @@
+.education-experience-card {
+	background: #5b5d66;
+	border-radius: 10px;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+	padding: 1.2rem 1.5rem;
+	margin-bottom: 1.5rem;
+}
+
+.education-section, .experience-section {
+	margin-bottom: 2.5rem;
+}
+
+.education-item, .experience-item {
+    margin-bottom: 1.5rem;
+}
+
+.education-item:last-child, .experience-item:last-child {
+    margin-bottom: 0;
+}
+
+.certificate-link {
+	display: inline-block;
+	margin-top: 0.5rem;
+	color: #618686;
+	font-weight: 600;
+	text-decoration: none;
+}
+.certificate-link:hover {
+	text-decoration: underline;
+    color: #d5c3c3;
+}
+.exp-tech-list {
+	margin-top: 0.7rem;
+}
+.exp-tech-item {
+	display: inline-block;
+	background: #46596b;
+	color: #fff;
+	border-radius: 6px;
+	padding: 0.3rem 0.8rem;
+	margin-right: 0.5rem;
+	font-size: 0.95rem;
+	margin-bottom: 0.3rem;
+}
+.edu-divider {
+	border: none;
+	height: 2px;
+	background: linear-gradient(to right, #46596b, #d5c3c3, #46596b);
+	margin: 1.2rem 0;
+	opacity: 0.5;
+}

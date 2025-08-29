@@ -1,0 +1,92 @@
+/* Estilos para la sección de proyectos */
+.projects-section {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    grid-auto-rows: min-content;
+}
+
+.project-card {
+    background: #2c2e39;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.carousel {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    margin-bottom: 1rem;
+}
+
+.carousel-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.10);
+    display: inline-block;
+}
+
+/* ajustar tamaño del carrusel de fotos en dispositivos moviles */
+
+@media (max-width: 768px) {
+    .carousel-img {
+        width: 100%;
+        height: auto;
+    }
+
+    .projects-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+span{
+    color: #d5c3c3;
+}
+
+strong{
+    color: #d5c3c3;
+}
+
+.project-desc {
+    margin: 1rem 0;
+    color: #d5c3c3;
+}
+
+.tech-list {
+    margin-bottom: 1rem;
+}
+
+.tech-item {
+    display: inline-block;
+    background: #46596b;
+    color: #fff;
+    border-radius: 6px;
+    padding: 0.3rem 0.8rem;
+    margin-right: 0.5rem;
+    font-size: 0.95rem;
+    margin-bottom: 0.3rem;
+}
+
+.project-links {
+    margin-top: 0.5rem;
+}
+
+.project-link {
+    display: inline-block;
+    margin-right: 1rem;
+    color: #618686;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s;
+    margin-bottom: 0.4rem;
+}
+
+.project-link:hover {
+    color: #d5c3c3;
+    text-decoration: underline;
+}

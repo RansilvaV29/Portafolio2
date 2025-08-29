@@ -1,0 +1,28 @@
+<section class="education-experience-card">
+	<div class="education-section">
+		<h2>Educación</h2>
+		<div *ngFor="let edu of educations; let last = last" class="education-item">
+			<h3>{{ edu.title }}</h3>
+			<p><strong>Institución:</strong> {{ edu.institution }}</p>
+			<p><strong>Periodo:</strong> {{ edu.period }}</p>
+			<p *ngIf="edu.status"><strong>Estado:</strong> {{ edu.status }}</p>
+			<a *ngIf="edu.certificateUrl" [href]="edu.certificateUrl" target="_blank" class="certificate-link">Ver
+				certificado</a>
+			<hr class="edu-divider" *ngIf="!last" />
+		</div>
+	</div>
+
+	<div class="experience-section">
+		<h2>Experiencia</h2>
+		<div *ngFor="let exp of experiences; let last = last" class="experience-item">
+			<h3>{{ exp.position }}</h3>
+			<p *ngIf="exp.company"><strong>Empresa:</strong> {{ exp.company }}</p>
+			<p><strong>Periodo:</strong> {{ exp.period }}</p>
+			<p>{{ exp.description }}</p>
+			<div *ngIf="exp.technologies?.length" class="exp-tech-list">
+				<span *ngFor="let tech of exp.technologies" class="exp-tech-item">{{ tech }}</span>
+			</div>
+			<hr class="edu-divider" *ngIf="!last" />
+		</div>
+	</div>
+</section>

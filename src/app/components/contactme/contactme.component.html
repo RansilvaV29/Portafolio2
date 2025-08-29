@@ -1,0 +1,48 @@
+<section class="contact-section">
+	<h2>Contáctame</h2>
+	<p>¿Tienes alguna pregunta, propuesta o quieres trabajar conmigo? ¡Escríbeme!</p>
+
+	<div class="contact-container">
+		<form class="contact-form">
+			<div class="form-group">
+				<label for="name">Nombre</label>
+				<input id="name" type="text" placeholder="Raul Silva" />
+			</div>
+			<div class="form-group">
+				<label for="email">Email</label>
+				<input id="email" type="email" placeholder="raul24297@gmail.com" />
+			</div>
+			<div class="form-group">
+				<label for="message">Mensaje</label>
+				<textarea id="message" rows="4" placeholder="Escribe tu mensaje..."></textarea>
+			</div>
+			<button type="submit" class="send-btn">Enviar</button>
+		</form>
+
+		<div class="contact-details">
+			<div class="contact-info">
+				<h3>Información de contacto</h3>
+				<p>
+					<a [href]="'mailto:' + contactInfo.email" class="contact-link">
+						<img [src]="contactInfo.emailIcon" alt="Email" class="contact-icon" />
+						{{ contactInfo.email }}
+					</a>
+				</p>
+				<p>
+					<a [href]="'tel:' + contactInfo.phone" class="contact-link">
+						<img [src]="contactInfo.phoneIcon" alt="Phone" class="contact-icon" /> 
+						{{ contactInfo.phone }}
+					</a>
+				</p>
+				<a href="assets/CV-RaulSilva.pdf" download class="cv-link">Descargar CV</a>
+			</div>
+
+			<div class="social-links">
+				<h3>Redes sociales</h3>
+				<a *ngFor="let social of socialLinks" [href]="social.url" target="_blank" class="social-link">
+					<img [src]="social.icon" [alt]="social.name" class="social-icon" />
+				</a>
+			</div>
+		</div>
+	</div>
+</section>
