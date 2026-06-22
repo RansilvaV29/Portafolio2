@@ -1,51 +1,93 @@
 .education-experience-card {
-	background: #5b5d66;
-	border-radius: 10px;
-	box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-	padding: 1.2rem 1.5rem;
-	margin-bottom: 1.5rem;
+	display: grid;
+	grid-template-columns: 1fr 1.3fr;
+	gap: 2rem;
+	align-items: start;
 }
 
-.education-section, .experience-section {
-	margin-bottom: 2.5rem;
+.education-section,
+.experience-section {
+	background: var(--bg-elevated);
+	border: 1px solid var(--border-soft);
+	border-radius: var(--radius-lg);
+	padding: 1.4rem 1.6rem;
 }
 
-.education-item, .experience-item {
-    margin-bottom: 1.5rem;
+.education-section h2,
+.experience-section h2 {
+	text-align: left;
+	font-size: 1.2rem;
+	color: var(--accent);
+	margin: 0 0 1.2rem;
 }
 
-.education-item:last-child, .experience-item:last-child {
-    margin-bottom: 0;
+.education-item,
+.experience-item {
+	margin-bottom: 1.4rem;
+}
+
+.education-item:last-child,
+.experience-item:last-child {
+	margin-bottom: 0;
+}
+
+.education-item h3,
+.experience-item h3 {
+	font-size: 1.02rem;
+	margin: 0 0 0.3rem;
+}
+
+.education-item p,
+.experience-item p {
+	margin: 0.2rem 0;
+	color: var(--text-secondary);
+	font-size: 0.92rem;
+}
+
+.education-item strong,
+.experience-item strong {
+	color: var(--text-primary);
 }
 
 .certificate-link {
 	display: inline-block;
 	margin-top: 0.5rem;
-	color: #618686;
+	color: var(--accent);
 	font-weight: 600;
 	text-decoration: none;
+	font-size: 0.9rem;
 }
+
 .certificate-link:hover {
 	text-decoration: underline;
-    color: #d5c3c3;
+	color: var(--text-primary);
 }
+
 .exp-tech-list {
 	margin-top: 0.7rem;
 }
+
 .exp-tech-item {
 	display: inline-block;
-	background: #46596b;
-	color: #fff;
+	background: var(--bg-elevated-2);
+	color: var(--text-secondary);
+	border: 1px solid var(--border-soft);
 	border-radius: 6px;
-	padding: 0.3rem 0.8rem;
+	padding: 0.25rem 0.7rem;
 	margin-right: 0.5rem;
-	font-size: 0.95rem;
-	margin-bottom: 0.3rem;
+	font-size: 0.85rem;
+	margin-bottom: 0.4rem;
 }
+
 .edu-divider {
 	border: none;
-	height: 2px;
-	background: linear-gradient(to right, #46596b, #d5c3c3, #46596b);
-	margin: 1.2rem 0;
-	opacity: 0.5;
+	height: 1px;
+	background: var(--border-soft);
+	margin: 1.1rem 0;
+}
+
+@media (max-width: 900px) {
+	.education-experience-card {
+		grid-template-columns: 1fr;
+	}
 }

@@ -1,5 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
 
+:root {
+    /* Brand palette: dark + red accent, consistent with the CV */
+    --bg-base: #14151c;
+    --bg-surface: #1b1d27;
+    --bg-elevated: #232531;
+    --bg-elevated-2: #2c2f3d;
+    --accent: #e63946;
+    --accent-dark: #b3242f;
+    --accent-soft: rgba(230, 57, 70, 0.15);
+    --text-primary: #f2f2f5;
+    --text-secondary: #b7b9c6;
+    --text-muted: #8a8d9c;
+    --border-soft: rgba(255, 255, 255, 0.08);
+    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.35);
+    --radius-md: 10px;
+    --radius-lg: 16px;
+}
+
 html,
 body {
     height: 100%;
@@ -7,17 +25,36 @@ body {
 
 body {
     margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
-    background-color: #121212;
-    color: #e0e0e0;
+    font-family: 'Segoe UI', Roboto, "Helvetica Neue", sans-serif;
+    background-color: var(--bg-base);
+    color: var(--text-primary);
 }
 
-h2, h3{
-    color: #e0e0e0;
+h1, h2, h3, h4 {
+    color: var(--text-primary);
+    font-weight: 700;
 }
 
-h2{
+h2 {
     text-align: center;
+    font-size: 2rem;
+    letter-spacing: 0.3px;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+h2.section-title::after {
+    content: '';
+    display: block;
+    width: 56px;
+    height: 4px;
+    background: var(--accent);
+    border-radius: 2px;
+    margin: 0.6rem auto 0;
+}
+
+a {
+    color: var(--accent);
+}
+
+::selection {
+    background: var(--accent-soft);
+}

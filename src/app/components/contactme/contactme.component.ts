@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 interface ContactInfo {
   email: string;
   phone: string;
-  cvUrl: string;
   emailIcon: string;
   phoneIcon: string;
 }
@@ -26,7 +25,6 @@ export class ContactmeComponent {
   contactInfo: ContactInfo = {
     email: 'raul29247@gmail.com',
     phone: '+593 97 896 7634',
-    cvUrl: '/assets/cv.pdf',
     emailIcon: 'https://img.icons8.com/ios/25/mail.png',
     phoneIcon: 'https://img.icons8.com/ios/25/phone.png',
   };

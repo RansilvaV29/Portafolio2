@@ -1,10 +1,20 @@
-<h2>Mis Proyectos</h2>
+<h2 class="section-title">Mis Proyectos</h2>
+
+<div class="projects-filter">
+	<label for="tech-filter">Filtrar por tecnología:</label>
+	<select id="tech-filter" [(ngModel)]="selectedTechnology" (ngModelChange)="onTechnologyChange()">
+		<option value="all">Todas</option>
+		<option *ngFor="let tech of allTechnologies" [value]="tech">{{ tech }}</option>
+	</select>
+</div>
 
 <section class="projects-section">
 	<div *ngFor="let project of filteredProjects" class="project-card">
-		 
-		<h3>{{ project.name }}</h3>
-		<div class="carousel">
+		<div class="project-card-header">
+			<h3>{{ project.name }}</h3>
+			<span class="project-year">{{ project.year }}</span>
+		</div>
+		<div class="carousel" *ngIf="project.images.length">
 			<img *ngFor="let img of project.images; let i = index" [src]="img" [alt]="project.name + ' imagen ' + (i+1)"
 				class="carousel-img" />
 		</div>

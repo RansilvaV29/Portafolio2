@@ -1,5 +1,5 @@
 <section class="tech-skills">
-	<h2>Tecnologías con las que trabajo</h2>
+	<h2 class="section-title">Tecnologías con las que trabajo</h2>
 	<div class="tech-grid">
 		<div *ngFor="let tech of technologies" class="tech-item">
 			<div class="tech-icon">
@@ -7,6 +7,49 @@
 				<div *ngIf="!tech.icon" class="tech-fallback">{{ tech.name.charAt(0) }}</div>
 			</div>
 			<div class="tech-label">{{ tech.name }}</div>
+		</div>
+	</div>
+</section>
+
+<section class="levels-section">
+	<div class="levels-grid">
+		<div class="levels-card">
+			<h3>Idiomas</h3>
+			<div *ngFor="let lang of languages" class="level-row">
+				<div class="level-row-header">
+					<span>{{ lang.name }}</span>
+					<span class="level-value">{{ lang.level }}%</span>
+				</div>
+				<div class="level-bar">
+					<div class="level-bar-fill" [style.width.%]="lang.level"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="levels-card">
+			<h3>Lenguajes y frameworks</h3>
+			<div *ngFor="let lang of programmingLanguages" class="level-row">
+				<div class="level-row-header">
+					<span>{{ lang.name }}</span>
+					<span class="level-value">{{ lang.level }}%</span>
+				</div>
+				<div class="level-bar">
+					<div class="level-bar-fill" [style.width.%]="lang.level"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="levels-card">
+			<h3>Habilidades</h3>
+			<div *ngFor="let skill of skills" class="level-row">
+				<div class="level-row-header">
+					<span>{{ skill.name }}</span>
+					<span class="level-value">{{ skill.level }}%</span>
+				</div>
+				<div class="level-bar">
+					<div class="level-bar-fill" [style.width.%]="skill.level"></div>
+				</div>
+			</div>
 		</div>
 	</div>
 </section>

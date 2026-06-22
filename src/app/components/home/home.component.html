@@ -1,11 +1,42 @@
-<div class="home-container">
-    <img src="assets/foto-perfil.jpeg" alt="Foto de perfil" class="profile-img" />
-    <div class="description">
-        <h2>¡Hola! Soy Raúl Silva</h2>
-        <p>
-            Estudiante de Ingeniería de Software con experiencia en desarrollo de aplicaciones y diseño de base de
-            datos. Dominio de tecnologías como Angular, React, Express, Spring Boot y bases de datos SQL, aplicándolas
-            en proyectos académicos que fortalezcan mis habilidades en programación, diseño web y gestión de datos.
-            Apasionado por crear soluciones innovadoras y contribuir al desarrollo de software de alto impacto. </p>
+<div class="hero">
+    <div class="hero-text">
+        <p class="hero-greeting">Hola, soy</p>
+        <h1 class="hero-name">Raúl Silva</h1>
+        <h2 class="hero-role">Desarrollador de Software Full Stack</h2>
+        <p class="hero-summary">
+            Estudiante de Ingeniería de Software y Desarrollador Jr. con experiencia construyendo
+            aplicaciones web Full Stack con <strong>Spring Boot, Angular, React y Node.js</strong>.
+            He participado en proyectos para el sector público y privado, desde el análisis de
+            requisitos hasta el despliegue de soluciones en producción.
+        </p>
+
+        <div class="hero-meta">
+            <span class="hero-meta-item">📍 Luis Zambrano, Quito - Ecuador</span>
+            <span class="hero-meta-item">🌐 Español (nativo) · Inglés</span>
+        </div>
+
+        <div class="hero-actions">
+            <a href="assets/CV-Raul-Silva.pdf" download="CV-Raul-Silva.pdf" class="btn btn-primary">Descargar CV</a>
+            <a href="assets/CV-Raul-Silva.pdf" target="_blank" rel="noopener" class="btn btn-secondary">Ver CV</a>
+            <a href="#contact" class="btn btn-ghost" (click)="scrollToContact($event)">Contáctame</a>
+        </div>
+
+        <div class="hero-socials">
+            <a *ngFor="let social of socialLinks" [href]="social.url" target="_blank" rel="noopener"
+                class="hero-social-link" [attr.aria-label]="social.name">
+                <img [src]="social.icon" [alt]="social.name" />
+            </a>
+        </div>
+    </div>
+
+    <div class="hero-photo-wrap">
+        <img src="assets/foto-perfil.jpeg" alt="Foto de perfil de Raúl Silva" class="profile-img" />
+    </div>
+</div>
+
+<div class="hero-stats">
+    <div *ngFor="let stat of stats" class="hero-stat-card">
+        <span class="hero-stat-value">{{ stat.value }}</span>
+        <span class="hero-stat-label">{{ stat.label }}</span>
     </div>
 </div>

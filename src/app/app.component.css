@@ -7,22 +7,22 @@
 	position: sticky;
 	top: 0;
 	z-index: 1200;
-	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+	box-shadow: var(--shadow-soft);
 	transition: all 0.3s ease-in-out;
-	background-color: #212534;
+	background-color: var(--bg-surface) !important;
+	color: var(--text-primary);
 	padding: 12px 30px;
-	/* transparente */
-	opacity: 0.95;
-	/* animación suave */
+	display: flex;
+	align-items: center;
 }
 
 .toolbar-title {
 	font-weight: 700;
-	margin-left: 0.5rem;
-	font-size: 1.05rem;
+	margin-right: 0.5rem;
+	font-size: 1.15rem;
 	line-height: 1;
+	color: var(--text-primary);
 	transition: all 0.3s ease-in-out;
-	/* suavizar cambios en móvil */
 }
 
 .spacer {
@@ -37,63 +37,68 @@
 }
 
 .toolbar-links a {
-	color: rgb(155, 138, 141);
+	color: var(--text-secondary);
 	text-decoration: none;
-	font-weight: 400;
+	font-weight: 500;
 	cursor: pointer;
-	transition: opacity 0.25s ease-in-out, color 0.3s ease-in-out;
+	transition: color 0.25s ease-in-out;
 }
 
 .toolbar-links a:hover {
-	opacity: 0.95;
+	color: var(--accent);
+}
+
+.toolbar-cv-btn {
+	margin-left: 1.5rem;
+	background: var(--accent);
+	color: #fff;
+	padding: 0.5rem 1.1rem;
+	border-radius: 6px;
+	font-weight: 600;
+	font-size: 0.9rem;
+	text-decoration: none;
+	white-space: nowrap;
+	transition: background 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.toolbar-cv-btn:hover {
+	background: var(--accent-dark);
+	transform: translateY(-1px);
 }
 
 #contact {
-	background: radial-gradient(ellipse at center, #10121a 0%, #212534 60%, #212534 100%);
+	background: radial-gradient(ellipse at center, var(--bg-base) 0%, var(--bg-surface) 60%, var(--bg-surface) 100%);
 }
 
 /* Hide desktop links on small screens */
 @media (max-width:900px) {
 	.toolbar-links {
-		font-size: 1.4rem;
+		font-size: 0.95rem;
 		align-content: center;
 		gap: 1rem;
+	}
+
+	.toolbar-cv-btn {
+		margin-left: 0.75rem;
+		padding: 0.45rem 0.8rem;
+		font-size: 0.8rem;
 	}
 }
 
 @media (max-width:768px) {
+	.toolbar-title {
+		display: none;
+	}
+
 	.toolbar-links {
-		font-size: 15px;
-		gap: 0.5rem;
+		font-size: 0.8rem;
+		gap: 0.6rem;
 	}
 }
 
-/* Center toolbar content on small screens while keeping the hamburger at the left */
-@media (max-width:900px) {
-	.mat-header {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		position: relative;
-		transition: all 0.3s ease-in-out;
-	}
-
-	/* keep the menu button visible and positioned at the left edge */
-	.mat-header>button.mat-icon-button {
-		position: absolute;
-		left: 8px;
-		display: inline-flex;
-		transition: all 0.3s ease-in-out;
-	}
-
-	/* if you have a title span, ensure it centers nicely */
-	.toolbar-title {
-		margin: 0;
-		font-size: 0.92rem;
-		transform: scale(0.98);
-		opacity: 0.98;
-		transition: all 0.3s ease-in-out;
-		/* transiciones al cambiar tamaño y opacidad */
+@media (max-width:560px) {
+	.toolbar-links a:nth-child(4) {
+		display: none;
 	}
 }
 
@@ -105,7 +110,7 @@
 	padding-left: 1rem;
 	padding-right: 1rem;
 	transition: padding 0.3s ease-in-out;
-	background-color: #212534;
+	background-color: var(--bg-base);
 	overflow: hidden;
 }
 
@@ -123,22 +128,21 @@ section {
 	width: 44px;
 	height: 44px;
 	border-radius: 50%;
-	background: rgba(0, 0, 0, 0.85);
+	background: var(--accent);
 	color: #fff;
 	border: none;
 	cursor: pointer;
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+	box-shadow: var(--shadow-soft);
 	font-size: 1.2rem;
 	z-index: 1400;
 	transition: all 0.3s ease-in-out;
-	/* animación hover */
 }
 
 .back-to-top:hover {
-	background: rgba(0, 0, 0, 0.95);
+	background: var(--accent-dark);
 	transform: scale(1.08);
 }
 
