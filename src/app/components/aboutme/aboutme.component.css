@@ -1,127 +1,160 @@
-/* Tecnologías: grid de iconos + etiqueta */
-.tech-skills {
-	margin-top: 1rem;
-}
-
-.tech-grid {
+.stack-grid {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
-	gap: 1.4rem 1rem;
-	align-items: start;
-	max-width: 760px;
-	margin: 2rem auto 0;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	border-top: 2px solid var(--ink);
 }
 
-.tech-item {
-	text-align: center;
+.stack-col {
+	padding: 1.5rem 1.5rem 1.75rem 0;
+}
+
+.stack-col + .stack-col {
+	padding-left: 1.5rem;
+	border-left: 1px solid var(--rule);
+}
+
+.stack-col h3 {
+	font-size: var(--step-2);
+	font-weight: 700;
+	letter-spacing: -0.01em;
+}
+
+.stack-note {
+	color: var(--ink-3);
+	font-size: 0.9rem;
+	margin-top: 0.35rem;
+	min-height: 2.8em;
+}
+
+.stack-list {
+	list-style: none;
+	margin: 1.1rem 0 0;
+	padding: 0;
 	display: flex;
 	flex-direction: column;
+	gap: 0.55rem;
+}
+
+.stack-list li {
+	display: flex;
 	align-items: center;
-	justify-content: center;
+	gap: 0.7rem;
+	font-weight: 500;
 }
 
 .tech-icon {
-	width: 72px;
-	height: 72px;
-	margin: 0 auto 0.5rem auto;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background: var(--bg-elevated);
-	border-radius: 16px;
-	border: 1px solid var(--border-soft);
-	transition: transform 0.2s ease-in-out, border-color 0.2s ease-in-out;
-}
-
-.tech-item:hover .tech-icon {
-	transform: translateY(-4px);
-	border-color: var(--accent);
+	display: grid;
+	place-items: center;
+	width: 36px;
+	height: 36px;
+	border-radius: 8px;
+	background: var(--paper);
+	border: 1px solid var(--rule);
+	flex-shrink: 0;
 }
 
 .tech-icon img {
-	max-width: 60%;
-	max-height: 60%;
-	display: block;
+	width: 22px;
+	height: 22px;
+	object-fit: contain;
 }
 
-.tech-fallback {
-	width: 100%;
-	height: 100%;
-	border-radius: 16px;
-	background: var(--bg-elevated);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-weight: 700;
-	color: var(--text-secondary);
-	font-size: 1.6rem;
+.tech-initial {
+	font: 700 0.95rem / 1 var(--font-display);
+	color: var(--cobalt);
 }
 
-.tech-label {
-	font-size: 0.85rem;
-	font-weight: 600;
-	color: var(--text-secondary);
-}
-
-/* Barras de nivel */
-.levels-section {
+.extra-grid {
 	margin-top: 3rem;
-}
-
-.levels-grid {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 1.5rem;
+	grid-template-columns: 2fr 1fr;
+	gap: 2rem 3rem;
+	padding-top: 2rem;
+	border-top: 1px solid var(--rule);
 }
 
-.levels-card {
-	background: var(--bg-elevated);
-	border: 1px solid var(--border-soft);
-	border-radius: var(--radius-lg);
-	padding: 1.4rem 1.5rem;
-}
-
-.levels-card h3 {
-	margin: 0 0 1.1rem;
-	color: var(--accent);
-	font-size: 1.05rem;
-}
-
-.level-row {
+.extra-title {
+	font-size: var(--step-1);
+	font-weight: 700;
 	margin-bottom: 1rem;
 }
 
-.level-row:last-child {
-	margin-bottom: 0;
+.practice-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
 }
 
-.level-row-header {
+.practice-list li {
+	padding: 0.45rem 0.85rem;
+	border-radius: 999px;
+	background: var(--cobalt-wash);
+	color: var(--cobalt-deep);
+	font-weight: 500;
+	font-size: 0.93rem;
+}
+
+.lang-list {
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 0.6rem;
+}
+
+.lang-list div {
 	display: flex;
 	justify-content: space-between;
-	font-size: 0.9rem;
-	color: var(--text-primary);
-	margin-bottom: 0.4rem;
+	padding-bottom: 0.6rem;
+	border-bottom: 1px solid var(--rule);
 }
 
-.level-value {
-	color: var(--text-muted);
+.lang-list dt {
+	font-weight: 600;
 }
 
-.level-bar {
-	height: 7px;
-	border-radius: 4px;
-	background: var(--bg-elevated-2);
-	overflow: hidden;
+.lang-list dd {
+	margin: 0;
+	color: var(--ink-2);
 }
 
-.level-bar-fill {
-	height: 100%;
-	border-radius: 4px;
-	background: linear-gradient(90deg, var(--accent-dark), var(--accent));
+@media (max-width: 960px) {
+	.stack-grid {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.stack-col:nth-child(3) {
+		padding-left: 0;
+		border-left: 0;
+	}
+
+	.stack-col:nth-child(n + 3) {
+		border-top: 1px solid var(--rule);
+	}
 }
 
-@media (max-width: 900px) {
-	.levels-grid {
+@media (max-width: 640px) {
+	.stack-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.stack-col,
+	.stack-col + .stack-col {
+		padding: 1.25rem 0;
+		border-left: 0;
+	}
+
+	.stack-col + .stack-col {
+		border-top: 1px solid var(--rule);
+	}
+
+	.stack-note {
+		min-height: 0;
+	}
+
+	.extra-grid {
 		grid-template-columns: 1fr;
 	}
 }

@@ -1,17 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-interface ContactInfo {
-  email: string;
-  phone: string;
-  emailIcon: string;
-  phoneIcon: string;
-}
-
-interface SocialLink {
-  name: string;
+interface ContactChannel {
+  label: string;
+  value: string;
   url: string;
-  icon: string;
+  external?: boolean;
 }
 
 @Component({
@@ -22,23 +16,17 @@ interface SocialLink {
   styleUrls: ['./contactme.component.css'],
 })
 export class ContactmeComponent {
-  contactInfo: ContactInfo = {
-    email: 'raul29247@gmail.com',
-    phone: '+593 97 896 7634',
-    emailIcon: 'https://img.icons8.com/ios/25/mail.png',
-    phoneIcon: 'https://img.icons8.com/ios/25/phone.png',
-  };
+  email = 'raul29247@gmail.com';
 
-  socialLinks: SocialLink[] = [
+  channels: ContactChannel[] = [
+    { label: 'Teléfono y WhatsApp', value: '+593 97 896 7634', url: 'https://wa.me/593978967634', external: true },
     {
-      name: 'LinkedIn',
+      label: 'LinkedIn',
+      value: 'raul-silva-ba265b144',
       url: 'https://www.linkedin.com/in/raul-silva-ba265b144/',
-      icon: 'https://img.icons8.com/ios-glyphs/30/linkedin.png',
+      external: true,
     },
-    {
-      name: 'GitHub',
-      url: 'https://github.com/RansilvaV29',
-      icon: 'https://img.icons8.com/ios-glyphs/30/github.png'
-    },
+    { label: 'GitHub', value: 'RansilvaV29', url: 'https://github.com/RansilvaV29', external: true },
+    { label: 'Correo universitario', value: 'rasilva7@espe.edu.ec', url: 'mailto:rasilva7@espe.edu.ec' },
   ];
 }

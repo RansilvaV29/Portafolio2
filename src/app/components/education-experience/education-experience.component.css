@@ -1,93 +1,171 @@
-.education-experience-card {
+.layout {
 	display: grid;
-	grid-template-columns: 1fr 1.3fr;
-	gap: 2rem;
+	grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+	gap: 3rem;
 	align-items: start;
 }
 
-.education-section,
-.experience-section {
-	background: var(--bg-elevated);
-	border: 1px solid var(--border-soft);
-	border-radius: var(--radius-lg);
-	padding: 1.4rem 1.6rem;
+.timeline {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	border-top: 2px solid var(--ink);
 }
 
-.education-section h2,
-.experience-section h2 {
-	text-align: left;
-	font-size: 1.2rem;
-	color: var(--accent);
-	margin: 0 0 1.2rem;
+.job {
+	display: grid;
+	grid-template-columns: 11rem minmax(0, 1fr);
+	gap: 1.5rem;
+	padding: 1.75rem 0;
+	border-bottom: 1px solid var(--rule);
 }
 
-.education-item,
-.experience-item {
-	margin-bottom: 1.4rem;
+.job-when {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 0.5rem;
 }
 
-.education-item:last-child,
-.experience-item:last-child {
-	margin-bottom: 0;
-}
-
-.education-item h3,
-.experience-item h3 {
-	font-size: 1.02rem;
-	margin: 0 0 0.3rem;
-}
-
-.education-item p,
-.experience-item p {
-	margin: 0.2rem 0;
-	color: var(--text-secondary);
-	font-size: 0.92rem;
-}
-
-.education-item strong,
-.experience-item strong {
-	color: var(--text-primary);
-}
-
-.certificate-link {
-	display: inline-block;
-	margin-top: 0.5rem;
-	color: var(--accent);
+.job-period {
 	font-weight: 600;
-	text-decoration: none;
-	font-size: 0.9rem;
+	color: var(--ink-2);
+	font-size: 0.95rem;
 }
 
-.certificate-link:hover {
-	text-decoration: underline;
-	color: var(--text-primary);
+.job-now {
+	font-size: 0.78rem;
+	font-weight: 600;
+	color: #0f7a43;
+	background: #e3f5ea;
+	padding: 0.2rem 0.55rem;
+	border-radius: 999px;
 }
 
-.exp-tech-list {
-	margin-top: 0.7rem;
+.job-what h3 {
+	font-size: var(--step-2);
+	font-weight: 700;
+	letter-spacing: -0.01em;
 }
 
-.exp-tech-item {
-	display: inline-block;
-	background: var(--bg-elevated-2);
-	color: var(--text-secondary);
-	border: 1px solid var(--border-soft);
-	border-radius: 6px;
-	padding: 0.25rem 0.7rem;
-	margin-right: 0.5rem;
-	font-size: 0.85rem;
+.job-company {
+	margin-top: 0.25rem;
+	color: var(--cobalt);
+	font-weight: 600;
+}
+
+.job-points {
+	margin: 0.85rem 0 0;
+	padding-left: 1.1rem;
+	color: var(--ink-2);
+	display: flex;
+	flex-direction: column;
+	gap: 0.35rem;
+	max-width: 68ch;
+}
+
+.job-points li::marker {
+	color: var(--rule-strong);
+}
+
+.job-tech {
+	list-style: none;
+	margin: 1rem 0 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.4rem;
+}
+
+.job-tech li {
+	font-size: 0.82rem;
+	font-weight: 500;
+	padding: 0.25rem 0.6rem;
+	border-radius: var(--radius-s);
+	background: var(--paper);
+	border: 1px solid var(--rule);
+	color: var(--ink-2);
+}
+
+.study {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+	position: sticky;
+	top: calc(var(--nav-h) + 1.5rem);
+}
+
+.degree,
+.certs {
+	background: var(--paper);
+	border: 1px solid var(--rule);
+	border-radius: var(--radius-m);
+	padding: 1.5rem;
+}
+
+.study h3 {
+	font-size: var(--step-1);
+	font-weight: 700;
+	margin-bottom: 0.9rem;
+}
+
+.degree-title {
+	font: 700 1.35rem / 1.2 var(--font-display);
 	margin-bottom: 0.4rem;
 }
 
-.edu-divider {
-	border: none;
-	height: 1px;
-	background: var(--border-soft);
-	margin: 1.1rem 0;
+.degree-meta {
+	color: var(--ink-2);
+	font-size: 0.95rem;
 }
 
-@media (max-width: 900px) {
-	.education-experience-card {
+.certs ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.certs li {
+	display: flex;
+	flex-direction: column;
+	gap: 0.15rem;
+	padding: 0.8rem 0;
+	border-top: 1px solid var(--rule);
+}
+
+.cert-title {
+	font-weight: 600;
+}
+
+.cert-meta {
+	color: var(--ink-3);
+	font-size: 0.88rem;
+}
+
+.cert-link {
+	font-size: 0.88rem;
+	font-weight: 600;
+	margin-top: 0.15rem;
+}
+
+@media (max-width: 960px) {
+	.layout {
 		grid-template-columns: 1fr;
+	}
+
+	.study {
+		position: static;
+	}
+}
+
+@media (max-width: 600px) {
+	.job {
+		grid-template-columns: 1fr;
+		gap: 0.6rem;
+	}
+
+	.job-when {
+		flex-direction: row;
+		align-items: center;
 	}
 }

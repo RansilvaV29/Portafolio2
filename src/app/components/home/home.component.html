@@ -1,43 +1,86 @@
-<div class="hero">
-    <div class="hero-text">
-        <p class="hero-greeting">Hola, soy</p>
-        <h1 class="hero-name">Raúl Silva</h1>
-        <h2 class="hero-role">Desarrollador de Software Full Stack</h2>
-        <p class="hero-summary">
-            Ingeniero de Software y Desarrollador Jr. con experiencia en el desarrollo de
-            aplicaciones web Full Stack con <strong>Spring Boot, Angular, React, Node.js y bases de datos SQL</strong>.
-            He participado en proyectos para el sector público y privado, desde el análisis de
-            requisitos hasta el despliegue de soluciones. Me apasiona el aprendizaje continuo y crear
-            soluciones tecnológicas que generen valor.
-        </p>
+<div class="page hero">
+	<div class="hero-copy">
+		<p class="hero-hello">Hola, soy Raúl Silva.</p>
+		<h1 class="hero-title">Desarrollador Full Stack que conecta software con la planta de producción.</h1>
+		<p class="hero-summary">
+			Ingeniero de Software en Quito. Construyo aplicaciones web con Spring Boot, Angular, React y
+			Node.js, y hoy desarrollo sistemas de control de producción para la industria de etiquetas:
+			inventario, consumo de materia prima y control remoto de maquinaria láser.
+		</p>
 
-        <div class="hero-meta">
-            <span class="hero-meta-item">Luis Zambrano, Quito - Ecuador</span>
-            <span class="hero-meta-item">Español (nativo) · Inglés</span>
-        </div>
+		<div class="hero-actions">
+			<a href="#projects" class="btn btn-primary">Ver proyectos</a>
+			<a href="assets/CV-Raul-Silva.pdf" target="_blank" rel="noopener" class="btn btn-outline">Abrir CV</a>
+			<span class="hero-socials">
+				<a *ngFor="let s of socialLinks" [href]="s.url" target="_blank" rel="noopener" class="icon-link"
+					[attr.aria-label]="s.name">
+					<svg viewBox="0 0 24 24" aria-hidden="true"><path [attr.d]="s.path" /></svg>
+				</a>
+			</span>
+		</div>
+	</div>
 
-        <div class="hero-actions">
-            <a href="assets/CV-Raul-Silva.pdf" download="CV-Raul-Silva.pdf" class="btn btn-primary">Descargar CV</a>
-            <a href="assets/CV-Raul-Silva.pdf" target="_blank" rel="noopener" class="btn btn-secondary">Ver CV</a>
-            <a href="#contact" class="btn btn-ghost" (click)="scrollToContact($event)">Contáctame</a>
-        </div>
+	<figure class="label-wrap" aria-label="Tarjeta de presentación de Raúl Silva">
+		<span class="crop crop-tl" aria-hidden="true"></span>
+		<span class="crop crop-tr" aria-hidden="true"></span>
+		<span class="crop crop-bl" aria-hidden="true"></span>
+		<span class="crop crop-br" aria-hidden="true"></span>
 
-        <div class="hero-socials">
-            <a *ngFor="let social of socialLinks" [href]="social.url" target="_blank" rel="noopener"
-                class="hero-social-link" [attr.aria-label]="social.name">
-                <img [src]="social.icon" [alt]="social.name" />
-            </a>
-        </div>
-    </div>
+		<div class="label">
+			<div class="label-top">
+				<img src="assets/foto-perfil.jpeg" alt="Foto de Raúl Silva" class="label-photo" width="104"
+					height="104" />
+				<div class="label-id">
+					<span class="label-name">Raúl Silva</span>
+					<span class="label-role">Desarrollador de Software Full Stack</span>
+					<span class="label-status"><span class="dot" aria-hidden="true"></span>Desarrollador Jr. en Etimet</span>
+				</div>
+			</div>
 
-    <div class="hero-photo-wrap">
-        <img src="assets/foto-perfil.jpeg" alt="Foto de perfil de Raúl Silva" class="profile-img" />
-    </div>
+			<dl class="label-spec">
+				<div>
+					<dt>Ubicación</dt>
+					<dd>Quito, Ecuador</dd>
+				</div>
+				<div>
+					<dt>Formación</dt>
+					<dd>Ing. de Software, ESPE</dd>
+				</div>
+				<div>
+					<dt>Backend</dt>
+					<dd>Spring Boot, Node.js</dd>
+				</div>
+				<div>
+					<dt>Frontend</dt>
+					<dd>Angular, React</dd>
+				</div>
+				<div>
+					<dt>Idiomas</dt>
+					<dd>Español, Inglés</dd>
+				</div>
+				<div>
+					<dt>Correo</dt>
+					<dd><a href="mailto:raul29247@gmail.com">raul29247&#64;gmail.com</a></dd>
+				</div>
+			</dl>
+
+			<div class="label-code">
+				<svg class="barcode" [attr.viewBox]="'0 0 ' + barcodeWidth + ' 40'" preserveAspectRatio="none"
+					aria-hidden="true">
+					<rect *ngFor="let b of bars" [attr.x]="b.x" y="0" [attr.width]="b.w" height="40"
+						[style.animation-delay.ms]="b.delay" />
+				</svg>
+				<span class="code-text">{{ code }}</span>
+			</div>
+		</div>
+	</figure>
 </div>
 
-<div class="hero-stats">
-    <div *ngFor="let stat of stats" class="hero-stat-card">
-        <span class="hero-stat-value">{{ stat.value }}</span>
-        <span class="hero-stat-label">{{ stat.label }}</span>
-    </div>
+<div class="page">
+	<ul class="stats">
+		<li *ngFor="let stat of stats">
+			<span class="stat-value">{{ stat.value }}</span>
+			<span class="stat-label">{{ stat.label }}</span>
+		</li>
+	</ul>
 </div>

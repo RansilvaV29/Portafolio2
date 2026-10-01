@@ -1,40 +1,109 @@
-<h2 class="section-title">Mis Proyectos</h2>
-
-<div class="projects-filter">
-	<label for="tech-filter">Filtrar por tecnología:</label>
-	<select id="tech-filter" [(ngModel)]="selectedTechnology" (ngModelChange)="onTechnologyChange()">
-		<option value="all">Todas</option>
-		<option *ngFor="let tech of allTechnologies" [value]="tech">{{ tech }}</option>
-	</select>
-</div>
-
-<section class="projects-section">
-	<div *ngFor="let project of filteredProjects" class="project-card">
-		<div class="project-card-header">
-			<h3>{{ project.name }}</h3>
-			<span class="project-year">{{ project.year }}</span>
-		</div>
-		<div class="carousel" *ngIf="project.images.length">
-			<img *ngFor="let img of project.images; let i = index" [src]="img" [alt]="project.name + ' imagen ' + (i+1)"
-				class="carousel-img" />
-		</div>
-		<p class="project-desc">{{ project.description }}</p>
-		<div class="tech-list">
-			<span *ngFor="let tech of project.technologies" class="tech-item">{{ tech }}</span>
-		</div>
-		<div class="project-links">
-			<a *ngIf="project.githubFront" [href]="project.githubFront" target="_blank" class="project-link">GitHub
-				Frontend</a>
-			<a *ngIf="project.githubBack" [href]="project.githubBack" target="_blank" class="project-link">GitHub
-				Backend</a>
-			<a *ngIf="project.github && !project.githubFront && !project.githubBack" [href]="project.github"
-				target="_blank" class="project-link">GitHub</a>
-			<a *ngIf="project.preview" [href]="project.preview" target="_blank" class="project-link">Preview</a>
-		</div>
-		<div *ngIf="project.adminCredentials || project.userCredentials" class="project-credentials">
-			<strong>Credenciales:</strong>
-			<div *ngIf="project.adminCredentials"><span>Administrador: {{ project.adminCredentials }}</span></div>
-			<div *ngIf="project.userCredentials"><span>Usuario: {{ project.userCredentials }}</span></div>
-		</div>
+<div class="page">
+	<div class="section-head">
+		<h2 class="section-title">Proyectos</h2>
+		<p class="section-lead">Sistemas para producción industrial, gestión empresarial y aplicaciones propias.
+			Filtra por tecnología para ver dónde la he usado.</p>
 	</div>
-</section>
+
+	<div class="filters" role="group" aria-label="Filtrar proyectos por tecnología">
+		<button type="button" class="chip" [class.is-active]="selectedTechnology === 'all'"
+			[attr.aria-pressed]="selectedTechnology === 'all'" (click)="selectTechnology('all')">Todos</button>
+		<button *ngFor="let tech of allTechnologies" type="button" class="chip"
+			[class.is-active]="selectedTechnology === tech" [attr.aria-pressed]="selectedTechnology === tech"
+			(click)="selectTechnology(tech)">{{ tech }}</button>
+	</div>
+
+	<article *ngIf="featured as f" class="featured">
+		<div class="featured-copy">
+			<p class="featured-kicker">Proyecto destacado, {{ f.year }}</p>
+			<h3 class="featured-title">{{ f.name }}</h3>
+			<p class="featured-desc">{{ f.description }}</p>
+			<ul class="tags">
+				<li *ngFor="let t of f.technologies">{{ t }}</li>
+			</ul>
+		</div>
+		<ul class="featured-points">
+			<li *ngFor="let h of f.highlights">{{ h }}</li>
+		</ul>
+	</article>
+
+	<div class="project-grid project-grid-3" *ngIf="textProjects.length">
+		<article *ngFor="let project of textProjects" class="project project-compact">
+			<div class="media" *ngIf="project.images.length">
+				<img *ngFor="let img of project.images; let i = index" [src]="img"
+					[alt]="'Captura de ' + project.name + ', imagen ' + (i + 1)"
+					[class.is-visible]="activeImage[project.name] === i" />
+			</div>
+
+			<div class="project-body">
+				<div class="project-head">
+					<h3>{{ project.name }}</h3>
+					<span class="project-year">{{ project.year }}</span>
+				</div>
+				<p class="project-desc">{{ project.description }}</p>
+				<ul class="tags">
+					<li *ngFor="let t of project.technologies">{{ t }}</li>
+				</ul>
+
+				<div class="project-links"
+					*ngIf="project.github || project.githubFront || project.githubBack || project.preview">
+					<a *ngIf="project.preview" [href]="project.preview" target="_blank" rel="noopener"
+						class="link-strong">Ver demo</a>
+					<a *ngIf="project.githubFront" [href]="project.githubFront" target="_blank" rel="noopener">Código
+						frontend</a>
+					<a *ngIf="project.githubBack" [href]="project.githubBack" target="_blank" rel="noopener">Código
+						backend</a>
+					<a *ngIf="project.github && !project.githubFront && !project.githubBack" [href]="project.github"
+						target="_blank" rel="noopener">Código</a>
+				</div>
+
+				<details *ngIf="project.adminCredentials || project.userCredentials" class="creds">
+					<summary>Credenciales de prueba</summary>
+					<p *ngIf="project.adminCredentials">Administrador: <code>{{ project.adminCredentials }}</code></p>
+					<p *ngIf="project.userCredentials">Usuario: <code>{{ project.userCredentials }}</code></p>
+				</details>
+			</div>
+		</article>
+	</div>
+
+	<div class="project-grid" *ngIf="mediaProjects.length">
+		<article *ngFor="let project of mediaProjects" class="project" [class.has-media]="project.images.length">
+			<div class="media" *ngIf="project.images.length">
+				<img *ngFor="let img of project.images; let i = index" [src]="img"
+					[alt]="'Captura de ' + project.name + ', imagen ' + (i + 1)"
+					[class.is-visible]="activeImage[project.name] === i" />
+			</div>
+
+			<div class="project-body">
+				<div class="project-head">
+					<h3>{{ project.name }}</h3>
+					<span class="project-year">{{ project.year }}</span>
+				</div>
+				<p class="project-desc">{{ project.description }}</p>
+				<ul class="tags">
+					<li *ngFor="let t of project.technologies">{{ t }}</li>
+				</ul>
+
+				<div class="project-links"
+					*ngIf="project.github || project.githubFront || project.githubBack || project.preview">
+					<a *ngIf="project.preview" [href]="project.preview" target="_blank" rel="noopener"
+						class="link-strong">Ver demo</a>
+					<a *ngIf="project.githubFront" [href]="project.githubFront" target="_blank" rel="noopener">Código
+						frontend</a>
+					<a *ngIf="project.githubBack" [href]="project.githubBack" target="_blank" rel="noopener">Código
+						backend</a>
+					<a *ngIf="project.github && !project.githubFront && !project.githubBack" [href]="project.github"
+						target="_blank" rel="noopener">Código</a>
+				</div>
+
+				<details *ngIf="project.adminCredentials || project.userCredentials" class="creds">
+					<summary>Credenciales de prueba</summary>
+					<p *ngIf="project.adminCredentials">Administrador: <code>{{ project.adminCredentials }}</code></p>
+					<p *ngIf="project.userCredentials">Usuario: <code>{{ project.userCredentials }}</code></p>
+				</details>
+			</div>
+		</article>
+	</div>
+
+	<p *ngIf="!filteredProjects.length" class="empty">No hay proyectos con esa tecnología.</p>
+</div>

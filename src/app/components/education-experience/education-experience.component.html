@@ -1,29 +1,49 @@
-<h2 class="section-title">Mi trayectoria</h2>
-<section class="education-experience-card">
-	<div class="education-section">
-		<h2>Educación</h2>
-		<div *ngFor="let edu of educations; let last = last" class="education-item">
-			<h3>{{ edu.title }}</h3>
-			<p><strong>Institución:</strong> {{ edu.institution }}</p>
-			<p><strong>Periodo:</strong> {{ edu.period }}</p>
-			<p *ngIf="edu.status"><strong>Estado:</strong> {{ edu.status }}</p>
-			<a *ngIf="edu.certificateUrl" [href]="edu.certificateUrl" target="_blank" class="certificate-link">Ver
-				certificado</a>
-			<hr class="edu-divider" *ngIf="!last" />
-		</div>
+<div class="page">
+	<div class="section-head">
+		<h2 class="section-title">Trayectoria</h2>
+		<p class="section-lead">Experiencia en el sector público y en la industria privada, en paralelo a mi
+			formación como Ingeniero de Software.</p>
 	</div>
 
-	<div class="experience-section">
-		<h2>Experiencia</h2>
-		<div *ngFor="let exp of experiences; let last = last" class="experience-item">
-			<h3>{{ exp.position }}</h3>
-			<p *ngIf="exp.company"><strong>Empresa:</strong> {{ exp.company }}</p>
-			<p><strong>Periodo:</strong> {{ exp.period }}</p>
-			<p>{{ exp.description }}</p>
-			<div *ngIf="exp.technologies?.length" class="exp-tech-list">
-				<span *ngFor="let tech of exp.technologies" class="exp-tech-item">{{ tech }}</span>
+	<div class="layout">
+		<ol class="timeline" aria-label="Experiencia laboral">
+			<li *ngFor="let exp of experiences" class="job" [class.is-current]="exp.current">
+				<div class="job-when">
+					<span class="job-period">{{ exp.period }}</span>
+					<span *ngIf="exp.current" class="job-now">Actual</span>
+				</div>
+				<div class="job-what">
+					<h3>{{ exp.position }}</h3>
+					<p class="job-company">{{ exp.company }}</p>
+					<ul class="job-points">
+						<li *ngFor="let p of exp.points">{{ p }}</li>
+					</ul>
+					<ul *ngIf="exp.technologies?.length" class="job-tech">
+						<li *ngFor="let t of exp.technologies">{{ t }}</li>
+					</ul>
+				</div>
+			</li>
+		</ol>
+
+		<aside class="study">
+			<div class="degree">
+				<h3>Educación</h3>
+				<p class="degree-title">{{ degree.title }}</p>
+				<p class="degree-meta">{{ degree.institution }}</p>
+				<p class="degree-meta">{{ degree.period }}</p>
 			</div>
-			<hr class="edu-divider" *ngIf="!last" />
-		</div>
+
+			<div class="certs">
+				<h3>Certificaciones</h3>
+				<ul>
+					<li *ngFor="let c of certifications">
+						<span class="cert-title">{{ c.title }}</span>
+						<span class="cert-meta">{{ c.institution }}, {{ c.period }}</span>
+						<a *ngIf="c.certificateUrl" [href]="c.certificateUrl" target="_blank" rel="noopener"
+							class="cert-link">Ver certificado</a>
+					</li>
+				</ul>
+			</div>
+		</aside>
 	</div>
-</section>
+</div>
