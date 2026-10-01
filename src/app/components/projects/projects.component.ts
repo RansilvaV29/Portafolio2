@@ -116,19 +116,11 @@ export class ProjectsComponent implements OnInit, OnDestroy {
   allTechnologies: string[] = [];
   selectedTechnology = 'all';
 
-  get gridProjects(): Project[] {
-    return this.filteredProjects;
-  }
-
-  get mediaProjects(): Project[] {
-    return this.gridProjects.filter(p => p.images.length);
-  }
-
-  get textProjects(): Project[] {
-    return this.gridProjects.filter(p => !p.images.length);
-  }
-
   ngOnInit() {
+    // Más recientes primero; en el mismo año, los que tienen capturas van antes
+    this.projects = [...this.projects].sort(
+      (a, b) => Number(b.year) - Number(a.year) || Number(b.images.length > 0) - Number(a.images.length > 0),
+    );
     this.projects.forEach(p => (this.activeImage[p.name] = 0));
     const reduce = typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
     if (!reduce) {

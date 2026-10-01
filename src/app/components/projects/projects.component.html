@@ -13,47 +13,8 @@
 			(click)="selectTechnology(tech)">{{ tech }}</button>
 	</div>
 
-	<div class="project-grid project-grid-3" *ngIf="textProjects.length">
-		<article *ngFor="let project of textProjects" class="project project-compact">
-			<div class="media" *ngIf="project.images.length">
-				<img *ngFor="let img of project.images; let i = index" [src]="img"
-					[alt]="'Captura de ' + project.name + ', imagen ' + (i + 1)"
-					[class.is-visible]="activeImage[project.name] === i" />
-			</div>
-
-			<div class="project-body">
-				<div class="project-head">
-					<h3>{{ project.name }}</h3>
-					<span class="project-year">{{ project.year }}</span>
-				</div>
-				<p class="project-desc">{{ project.description }}</p>
-				<ul class="tags">
-					<li *ngFor="let t of project.technologies">{{ t }}</li>
-				</ul>
-
-				<div class="project-links"
-					*ngIf="project.github || project.githubFront || project.githubBack || project.preview">
-					<a *ngIf="project.preview" [href]="project.preview" target="_blank" rel="noopener"
-						class="link-strong">Ver demo</a>
-					<a *ngIf="project.githubFront" [href]="project.githubFront" target="_blank" rel="noopener">Código
-						frontend</a>
-					<a *ngIf="project.githubBack" [href]="project.githubBack" target="_blank" rel="noopener">Código
-						backend</a>
-					<a *ngIf="project.github && !project.githubFront && !project.githubBack" [href]="project.github"
-						target="_blank" rel="noopener">Código</a>
-				</div>
-
-				<details *ngIf="project.adminCredentials || project.userCredentials" class="creds">
-					<summary>Credenciales de prueba</summary>
-					<p *ngIf="project.adminCredentials">Administrador: <code>{{ project.adminCredentials }}</code></p>
-					<p *ngIf="project.userCredentials">Usuario: <code>{{ project.userCredentials }}</code></p>
-				</details>
-			</div>
-		</article>
-	</div>
-
-	<div class="project-grid" *ngIf="mediaProjects.length">
-		<article *ngFor="let project of mediaProjects" class="project" [class.has-media]="project.images.length">
+	<div class="project-grid" *ngIf="filteredProjects.length">
+		<article *ngFor="let project of filteredProjects" class="project" [class.has-media]="project.images.length">
 			<div class="media" *ngIf="project.images.length">
 				<img *ngFor="let img of project.images; let i = index" [src]="img"
 					[alt]="'Captura de ' + project.name + ', imagen ' + (i + 1)"
