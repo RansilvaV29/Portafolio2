@@ -13,20 +13,6 @@
 			(click)="selectTechnology(tech)">{{ tech }}</button>
 	</div>
 
-	<article *ngIf="featured as f" class="featured">
-		<div class="featured-copy">
-			<p class="featured-kicker">Proyecto destacado, {{ f.year }}</p>
-			<h3 class="featured-title">{{ f.name }}</h3>
-			<p class="featured-desc">{{ f.description }}</p>
-			<ul class="tags">
-				<li *ngFor="let t of f.technologies">{{ t }}</li>
-			</ul>
-		</div>
-		<ul class="featured-points">
-			<li *ngFor="let h of f.highlights">{{ h }}</li>
-		</ul>
-	</article>
-
 	<div class="project-grid project-grid-3" *ngIf="textProjects.length">
 		<article *ngFor="let project of textProjects" class="project project-compact">
 			<div class="media" *ngIf="project.images.length">

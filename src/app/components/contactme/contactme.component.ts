@@ -27,6 +27,5 @@ export class ContactmeComponent {
       external: true,
     },
     { label: 'GitHub', value: 'RansilvaV29', url: 'https://github.com/RansilvaV29', external: true },
-    { label: 'Correo universitario', value: 'rasilva7@espe.edu.ec', url: 'mailto:rasilva7@espe.edu.ec' },
   ];
 }

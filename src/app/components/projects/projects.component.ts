@@ -7,7 +7,6 @@ interface Project {
   description: string;
   technologies: string[];
   images: string[];
-  highlights?: string[];
   github?: string;
   githubFront?: string;
   githubBack?: string;
@@ -28,13 +27,7 @@ export class ProjectsComponent implements OnInit, OnDestroy {
     {
       name: 'Middleware para marcadora láser industrial SUNINE K‑Series',
       year: '2026',
-      description: 'Middleware que permite controlar de forma remota una máquina de marcado láser CO2 industrial desde una aplicación web, implementando el protocolo propietario del fabricante.',
-      highlights: [
-        'Protocolo del fabricante implementado en Node.js: tramas ASCII con checksum sobre TCP/IP.',
-        'Editor visual en Angular (SVG) para posicionar, rotar y editar los objetos a marcar, de forma individual o agrupada.',
-        'Persistencia local para compensar las limitaciones de lectura de estado del protocolo.',
-        'Telemetría de producción en tiempo real (contadores y errores) mediante WebSockets.',
-      ],
+      description: 'Middleware en Node.js que implementa el protocolo propietario del fabricante (tramas ASCII con checksum sobre TCP/IP) para controlar de forma remota una máquina de marcado láser CO2 industrial. Incluye un editor visual en Angular (SVG) para posicionar, rotar y editar los objetos a marcar, y telemetría de producción en tiempo real mediante WebSockets.',
       technologies: ['Node.js', 'Angular', 'WebSockets', 'TCP/IP'],
       images: [],
     },
@@ -123,12 +116,8 @@ export class ProjectsComponent implements OnInit, OnDestroy {
   allTechnologies: string[] = [];
   selectedTechnology = 'all';
 
-  get featured(): Project | undefined {
-    return this.selectedTechnology === 'all' ? this.projects[0] : undefined;
-  }
-
   get gridProjects(): Project[] {
-    return this.featured ? this.filteredProjects.slice(1) : this.filteredProjects;
+    return this.filteredProjects;
   }
 
   get mediaProjects(): Project[] {

@@ -1,11 +1,12 @@
 <div class="page hero">
 	<div class="hero-copy">
 		<p class="hero-hello">Hola, soy Raúl Silva.</p>
-		<h1 class="hero-title">Desarrollador Full Stack que conecta software con la planta de producción.</h1>
+		<h1 class="hero-title">Desarrollador Full Stack, del requisito al despliegue.</h1>
 		<p class="hero-summary">
-			Ingeniero de Software en Quito. Construyo aplicaciones web con Spring Boot, Angular, React y
-			Node.js, y hoy desarrollo sistemas de control de producción para la industria de etiquetas:
-			inventario, consumo de materia prima y control remoto de maquinaria láser.
+			Ingeniero de Software y desarrollador Full Stack. Diseño y construyo aplicaciones web completas,
+			desde el análisis de requisitos hasta el despliegue, con Spring Boot, Angular, React, Node.js y bases
+			de datos SQL. Busco seguir creciendo en arquitectura de software y sistemas a escala, creando
+			soluciones tecnológicas que generen valor real.
 		</p>
 
 		<div class="hero-actions">
@@ -33,7 +34,6 @@
 				<div class="label-id">
 					<span class="label-name">Raúl Silva</span>
 					<span class="label-role">Desarrollador de Software Full Stack</span>
-					<span class="label-status"><span class="dot" aria-hidden="true"></span>Desarrollador Jr. en Etimet</span>
 				</div>
 			</div>
 
@@ -64,23 +64,13 @@
 				</div>
 			</dl>
 
-			<div class="label-code">
-				<svg class="barcode" [attr.viewBox]="'0 0 ' + barcodeWidth + ' 40'" preserveAspectRatio="none"
-					aria-hidden="true">
-					<rect *ngFor="let b of bars" [attr.x]="b.x" y="0" [attr.width]="b.w" height="40"
-						[style.animation-delay.ms]="b.delay" />
-				</svg>
-				<span class="code-text">{{ code }}</span>
+			<div class="label-qr">
+				<img src="assets/qr-contacto.svg" alt="Código QR con mi tarjeta de contacto" width="120" height="120" />
+				<div>
+					<p class="qr-title">Guarda mi contacto</p>
+					<p class="qr-text">Escanea el código con la cámara de tu celular para agregarme a tus contactos.</p>
+				</div>
 			</div>
 		</div>
 	</figure>
-</div>
-
-<div class="page">
-	<ul class="stats">
-		<li *ngFor="let stat of stats">
-			<span class="stat-value">{{ stat.value }}</span>
-			<span class="stat-label">{{ stat.label }}</span>
-		</li>
-	</ul>
 </div>
