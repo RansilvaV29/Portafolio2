@@ -26,24 +26,31 @@ interface Project {
 export class ProjectsComponent implements OnInit, OnDestroy {
   projects: Project[] = [
     {
+      name: 'Middleware para máquina de marcado láser industrial (SUNINE K-Series)',
+      year: '2026',
+      description: 'Middleware en Node.js que implementa el protocolo propietario del fabricante (tramas ASCII con checksum sobre TCP/IP) para controlar de forma remota una máquina de marcado láser CO2 industrial. Incluye un editor visual en Angular (SVG) para posicionar, rotar y escribir el contenido de los objetos a marcar de forma individual o agrupada, con persistencia local para compensar las limitaciones de lectura de estado del protocolo, y telemetría de producción en tiempo real (contadores y errores) mediante WebSockets.',
+      technologies: ['Node.js', 'Angular', 'WebSocket', 'TCP/IP'],
+      images: [],
+    },
+    {
       name: 'Sistema de gestión de tickets con definición de procesos',
       year: '2026',
-      description: 'Aplicación basada en microservicios para la gestión de tickets y definición de flujos de trabajo personalizados, escalable para soportar distintos tipos de procesos más allá del soporte de TI. Incluye actualización de tickets en tiempo real, autenticación con Keycloak y despliegue con Docker.',
+      description: 'Aplicación web basada en microservicios para la gestión de tickets y definición de flujos de trabajo personalizados. Sistema escalable que permite configurar distintos tipos de tickets y procesos, más allá del soporte de TI. Incluye actualización de tickets en tiempo real, autenticación con Keycloak y despliegue con Docker.',
       technologies: ['Spring Boot', 'Angular', 'WebSocket', 'Keycloak', 'Docker', 'Microservicios'],
       images: [],
     },
     {
       name: 'Sistema de toma de inventario para materia prima',
       year: '2025',
-      description: 'Plataforma que se conecta a la base de datos de la empresa para validar el inventario existente contra el inventario escaneado con pistolas lectoras de códigos de barras, comparando características y peso real de la materia para definir si las medidas son correctas.',
+      description: 'Plataforma que valida el inventario existente contra el inventario escaneado con pistolas lectoras de códigos de barras, extrayendo características de la materia prima y comparándolas con el peso real para verificar que las medidas sean correctas.',
       technologies: ['Node.js', 'Express', 'SQL Server', 'Angular'],
       images: [],
     },
     {
-      name: 'Página de administracion de un Gimnasio',
+      name: 'Sistema de gestión de gimnasio',
       year: '2025',
-      description: 'Página de administración para un gimnasio, con un sistema de gestión de usuarios, reservas de clases en tiempo real y seguimiento de progreso, con dos perfiles de usuario: administrador y cliente.',
-      technologies: ['Angular', 'PostgreSQL', 'SpringBoot', 'WebSocket', 'Microservicios(Docker)'],
+      description: 'Aplicación web para administrar usuarios, membresías, seguimiento de peso, reservas de clases en tiempo real, ejercicios y rutinas personalizadas, con validaciones personalizadas y dos perfiles de usuario: administrador y cliente.',
+      technologies: ['Angular', 'PostgreSQL', 'Spring Boot', 'WebSocket', 'Microservicios(Docker)'],
       images: ['assets/proyecto4-1.png', 'assets/proyecto4-2.png', 'assets/proyecto4-3.png', 'assets/proyecto4-4.png'],
       githubFront: 'https://github.com/Rabedon1/fitclubAngular',
       githubBack: 'https://github.com/RansilvaV29/GimnasioBackend',
@@ -95,7 +102,7 @@ export class ProjectsComponent implements OnInit, OnDestroy {
     {
       name: 'Ideart',
       year: '2022',
-      description: 'Primer proyecto hecho en HTML, CSS y JavaScript, basado en un emprendimiento real, se sacaron los requerimientos del cliente real hace uso ed una base de datos SQL para un CRUD basico.',
+      description: 'Primer proyecto hecho en HTML, CSS y JavaScript, basado en un emprendimiento real, se sacaron los requerimientos del cliente real hace uso de una base de datos SQL para un CRUD basico.',
       technologies: ['HTML', 'CSS', 'JavaScript', 'PostgreSQL'],
       images: ['assets/proyecto3-1.png'],
       github: 'https://github.com/Rabedon1/WEB-14766',

@@ -27,7 +27,7 @@ interface Experience {
 export class EducationExperienceComponent {
   educations: Education[] = [
     {
-      title: 'Ingeniería en Software',
+      title: 'Ingeniería de Software',
       institution: 'Universidad de las Fuerzas Armadas (ESPE)',
       period: '2021 - 2026',
       status: 'En curso'
@@ -58,22 +58,22 @@ export class EducationExperienceComponent {
   experiences: Experience[] = [
     {
       position: 'Desarrollador Jr.',
-      company: 'Industria de etiquetas',
-      period: '2025 - Actualidad',
-      description: 'Desarrollo Full Stack de una plataforma para el control de producción, incluyendo la gestión de inventario y el consumo de materia prima. Monitoreo y administración de la infraestructura de red y servidor de la empresa, además de la administración del entorno Microsoft 365 y gestión de usuarios.',
-      technologies: ['Angular', 'Node.js', 'Express', 'SQL Server', 'Microsoft 365']
+      company: 'Etimet Cía. Ltda.',
+      period: 'Sep. 2025 - Actualidad',
+      description: 'Desarrollo Full Stack de una plataforma para el control de producción en la industria de etiquetas, incluyendo la gestión de inventario y el consumo de materia prima. Monitoreo y administración de la infraestructura de red y servidor de la empresa, además de la administración del entorno Microsoft 365 y gestión de usuarios.',
+      technologies: ['Angular', 'Node.js', 'Express', 'SQL Server', 'WebSockets', 'Microsoft 365']
     },
     {
-      position: 'Pasante en Agencia de Regulación y Control de Hidrocarburos',
-      company: 'ARCH',
-      period: 'Marzo 2025 - Julio 2025',
+      position: 'Pasante de Desarrollo de Software',
+      company: 'Agencia de Regulación y Control de Hidrocarburos (ARCH)',
+      period: 'Mar. 2025 - Ago. 2025',
       description: 'Participación en el desarrollo Full Stack de una plataforma web para el registro y autorización de abastecedoras de derivados hidrocarburíferos, con perfiles de usuario y administrador. Levantamiento y análisis de requisitos funcionales, desarrollo del backend con Spring Boot y del frontend con Angular, y despliegue en ambiente de pruebas con WildFly.',
       technologies: ['Angular', 'Spring Boot', 'WildFly', 'Oracle SQL']
     },
     {
-      position: 'Participación en "Road to Start Hack"',
-      company: 'Hackatón colaborativo',
-      period: '2025',
+      position: 'Participante',
+      company: 'Hackatón "Road to Start Hack"',
+      period: 'Feb. 2025',
       description: 'Participación en un hackatón orientado al desarrollo de soluciones innovadoras en un período de 12 horas, aplicando metodologías ágiles para la planificación y ejecución del proyecto y desarrollando un prototipo funcional con tecnologías web.',
       technologies: ['Angular']
     },

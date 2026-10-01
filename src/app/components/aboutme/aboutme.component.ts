@@ -29,7 +29,11 @@ export class AboutmeComponent {
     { name: 'TypeScript', icon: 'https://img.icons8.com/color/120/typescript.png' },
     { name: 'PostgreSQL', icon: 'https://img.icons8.com/color/120/postgreesql.png' },
     { name: 'SQL Server', icon: 'https://img.icons8.com/color/120/database.png' },
+    { name: 'Express', icon: 'https://img.icons8.com/color/120/express-js.png' },
     { name: 'Docker', icon: 'https://img.icons8.com/color/120/docker.png' },
+    { name: 'Keycloak' },
+    { name: 'WildFly' },
+    { name: 'Git', icon: 'https://img.icons8.com/color/120/git.png' },
     { name: 'Firebase', icon: 'https://img.icons8.com/color/120/firebase.png' },
     { name: 'HTML5', icon: 'https://img.icons8.com/color/120/html-5.png' },
     { name: 'CSS3', icon: 'https://img.icons8.com/color/120/css3.png' },
@@ -57,5 +61,6 @@ export class AboutmeComponent {
     { name: 'Microservicios', level: 80 },
     { name: 'UI/UX', level: 70 },
     { name: 'Programación Paralela', level: 70 },
+    { name: 'Metodologías Ágiles', level: 80 },
   ];
 }

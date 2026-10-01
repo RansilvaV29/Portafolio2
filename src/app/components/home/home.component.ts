@@ -22,8 +22,8 @@ interface HeroLink {
 export class HomeComponent {
   stats: HeroStat[] = [
     { value: '4+', label: 'años de experiencia en código' },
-    { value: '8', label: 'proyectos full stack' },
-    { value: '5', label: 'certificaciones' },
+    { value: '10', label: 'proyectos' },
+    { value: '4', label: 'certificaciones' },
   ];
 
   socialLinks: HeroLink[] = [
